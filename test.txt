@@ -1,5 +1,7 @@
 20.5. Praca z gitem
-W tym submodule dowiesz się, jak używać repozytorium w pracy zespołowej. Będzie Ci to bardzo potrzebne już niedługo – podczas projektu zespołowego. Nie jest to sprawa trywialna (ale też i nie tak skomplikowana, jak może się wydawać), dlatego dajemy Ci trochę czasu na zapoznanie się z Gitem, zanim przystąpisz do projektu zespołowego. Prosimy, wykorzystaj ten czas na ćwiczenia, żeby podczas projektu zespołowego móc się skupić na zadaniach projektowych.
+
+Tekst wyedytowany
+W tym submodule dowiesz się, jak używać repozytorium w pracy zespołowej. Będzie Ci to potrzebne już niedługo – podczas projektu zespołowego. Nie jest to sprawa trywialna (ale też i nie tak skomplikowana, jak może się wydawać), dlatego dajemy Ci trochę czasu na zapoznanie się z Gitem, zanim przystąpisz do projektu zespołowego. Prosimy, wykorzystaj ten czas na ćwiczenia, żeby podczas projektu zespołowego móc się skupić na zadaniach projektowych.
 
 Praca w zespole różni się od pracy samodzielnej. Dotychczas wszystkie zmiany na bieżąco dodawaliśmy do głównego brancha – main. Podczas pracy w zespole nie możemy tak robić. Po wykonaniu standardowego polecenia
 
@@ -12,7 +14,7 @@ Będziesz pracować w grupie, więc żaden członek zespołu nie może osobno ut
 W celu przećwiczenia samego procesu klonowania, utwórz puste repozytorium na GitHubie np. o nazwie learning git. Powinna wyświetlić Ci się strona:
 
 image
-Teraz kliknij w link zaznaczony na czerwono. W taki sposób, za pomocą interfejsu graficznego GitHuba, możesz utworzyć dowolny plik. Nadaj mu nazwę np test.txt, wpisz przykładową treść i kliknij w
+Teraz kliknij w link zaznaczony na czerwono. W taki sposób, za pomocą interfejsu graficznego GitHuba, możesz utworzyć dowolny plik. Nadaj mu nazwę np po prostu  test.txt, wpisz przykładową treść i kliknij w
 
 Commit new file
 w dolnej części strony. Przeniesiesz się na główną stronę repozytorium. Teraz czas na uzyskanie linku – nie jest to adres strony internetowej. Aby skopiować odnośnik, należy kliknąć zielony przycisk Clone or download, a następnie wybrać ikonę kopiującą:
