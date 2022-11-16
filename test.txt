@@ -1,0 +1,133 @@
+20.5. Praca z gitem
+W tym submodule dowiesz się, jak używać repozytorium w pracy zespołowej. Będzie Ci to bardzo potrzebne już niedługo – podczas projektu zespołowego. Nie jest to sprawa trywialna (ale też i nie tak skomplikowana, jak może się wydawać), dlatego dajemy Ci trochę czasu na zapoznanie się z Gitem, zanim przystąpisz do projektu zespołowego. Prosimy, wykorzystaj ten czas na ćwiczenia, żeby podczas projektu zespołowego móc się skupić na zadaniach projektowych.
+
+Praca w zespole różni się od pracy samodzielnej. Dotychczas wszystkie zmiany na bieżąco dodawaliśmy do głównego brancha – main. Podczas pracy w zespole nie możemy tak robić. Po wykonaniu standardowego polecenia
+
+git push -u origin main
+dostaniesz informację o braku odpowiednich uprawnień. Stanie się tak, ponieważ Twój kod nie może trafić do głównego brancha bez sprawdzenia.
+
+Klonowanie repozytorium
+Będziesz pracować w grupie, więc żaden członek zespołu nie może osobno utworzyć własnego repozytorum na GitHubie. Będziecie pracować na tym samym repozytorium zdalnym, które już zostało przygotowane i uzupełnione startowym kodem.
+
+W celu przećwiczenia samego procesu klonowania, utwórz puste repozytorium na GitHubie np. o nazwie learning git. Powinna wyświetlić Ci się strona:
+
+image
+Teraz kliknij w link zaznaczony na czerwono. W taki sposób, za pomocą interfejsu graficznego GitHuba, możesz utworzyć dowolny plik. Nadaj mu nazwę np test.txt, wpisz przykładową treść i kliknij w
+
+Commit new file
+w dolnej części strony. Przeniesiesz się na główną stronę repozytorium. Teraz czas na uzyskanie linku – nie jest to adres strony internetowej. Aby skopiować odnośnik, należy kliknąć zielony przycisk Clone or download, a następnie wybrać ikonę kopiującą:
+
+image
+W kolejnym kroku, na komputerze otwórz wiersz poleceń (CMD) lub terminal, przejdź do folderu na dysku, gdzie przechowujesz swoje projekty i wykonaj git clone link_do_skopiowanego_repozytorium. Utworzony zostanie folder o nazwie takiej samej, jak nazwa repozytorium. I to tyle na temat samego procesu klonowania.
+
+Pobieranie zmian z repozytorium zdalnego
+Pracując w zespole, wiele osób będzie dodawać kod do wspólnego repozytorium. W wielu sytuacjach będziesz potrzebować zmian, które zostały wprowadzone przez inne osoby. Aby zainicjować proces pobierania, należy użyć polecenia git pull. Prawda, że proste? To tylko tyle. Aby przetestować działanie, możesz za pomocą interfejsu graficznego GitHuba wprowadzić zmiany w pliku test.txt, a następnie je pobrać, używając terminala.
+
+Operacje na branchach
+Branch w języku polskim oznacza gałąź. W terminologii Gita jest to kopia innej gałęzi (najczęściej main), na której możemy dokonywać modyfikacji. Wprowadzone zmiany możemy scalić (ang. merge) – czyli dołączyć do innego brancha.
+
+Branche w naszym projekcie będziemy tworzyć lokalnie, a następnie "wypchniemy" je do repozytorium zdalnego. Ważne jest, aby przed utworzeniem brancha pobrać wszystkie zmiany z repozytorium zdalnego.
+
+Nasz kod jest aktualny, więc tworzymy branch poleceniem git checkout -b nazwa_brancha. Aby wyświetlić gałęzie dostępne lokalnie, możesz użyć polecenia git branch. Gałąź oznaczona gwiazdką to gałąź aktywna (obecnie na niej pracujesz). Aby przełączyć się na inną, można skorzystać z polecenia git checkout nazwa_brancha. Zauważ, że nie dodaliśmy opcji –b – służy ona wyłącznie do utworzenia nowego brancha.
+
+Powiedzmy, że wprowadziliśmy zmiany w kodzie w nowym branchu. Czas je opublikować na GitHubie. Zaczynamy od sprawdzenia, jakie pliki mamy do dodania – najpierw git status. Na tym etapie zwróć szczególną uwagę, co zostało wyświetlone. Używając polecenia git add nie dodawaj do repozytorium plików z katalogów build, out czy innych, niepotrzebnych w danej chwili. Następnie trzeba utworzyć commita – pamiętaj o odpowiedniej wiadomości (po opcji –m). Komunikat powinien być na tyle jasny, aby inne osoby, czytając samą wiadomość, mogły się zorientować, co zawiera commit. Ostatni etap to wysłanie kodu do repozytorium zdalnego. Polecenie nieznacznie różni się od tego, które już znasz. W przedstawionym przykładzie musimy użyć
+
+git push –u origin nazwa_brancha
+W taki sposób wysyłamy naszego brancha lokalnego do repozytorium zdalnego. Co ważne utworzony branch zdalny będzie miał taką samą nazwę, jak branch lokalny.
+
+Zmiany wysłane, na Githubie istnieje nowy branch, teraz trzeba "wystawić prośbę" o dodanie go do głównej gałęzi. Aby to zrobić, wejdź na stronę repozytorium zdalnego, w środkowej części kliknij New pull request. Następie wybierz, którą gałąź dołączyć do gałęzi głównej.
+
+image
+Na dole strony możesz zaobserwować, jakie zmiany zawiera nowo przesłany branch w stosunku do brancha main. W zakładce "Assignees" wskaż osobę (e-mail), która potwierdzi zmergowanie zmian. Pracując w grupie możesz pull requesty kierować do wielu osób. Jedna z osób zmerguje zmiany, a pozostałe osoby będą mogły przejrzeć dodany przez Ciebie kod. Jeśli ktoś będzie miał uwagi, może odrzucić prośbę o złączenie zmian, a Twoim zadaniem będzie wprowadzenie poprawek zgodnie z przekazanym komentarzem.
+
+Do projektu zostało "podłączone" narzędzie CircleCi. Po każdym commicie kod jest budowany na zewnętrznym serwerze. Przed wystawieniem pull requesta zweryfikuj, czy build przeszedł poprawnie.
+
+image
+Pewnie zastanawiasz się, jak będzie budował się kod, skoro na zewnętrznym serwerze nie istnieje baza MySQL. Jest na to rozwiązanie – baza w pamięci (H2). W zależnościach dodaliśmy odpowiedni wpis, zostały też dodanie odpowiednie dane do application.properties, więc nie musisz się już niczym przejmować.
+
+Jeśli masz wątpliwości do powyższego materiału, to - zanim zatwierdzisz - zapytaj na czacie :)
+20.6. Git – łączenie branchy i kopiowanie commitów
+Git merge
+Podczas pracy w zespole, zmiany w branchach następują dość szybko. Załóżmy, że poprawiasz istniejący błąd w kodzie. Na początku tworzysz nowy branch FIX-JD-11 (nazwa zgodna z taskiem w Jirze). Problem rozwiązany, commit zrobiony, czas na złączenie zmian. Możesz to zrobić za pomocą pull requesta, ale możesz też samodzielnie dodać swój kod do głównej gałęzi main (jeśli masz odpowiednie uprawnienia). Aby wykonać całą procedurę, należy przełączyć się na main i wykonać polecenie git merge FIX-JD-11.
+
+A czy polecenie zadziała "w drugą stronę?". Tak, możesz przyłączyć zmiany z main do swojego brancha. Pamiętaj jednak, aby najpierw przełączyć się na gałąź main, pobrać najnowsze zmiany, przełączyć się na swój branch i dopiero wtedy wykonać git merge main.
+
+W zależności od zmian wykonanych w plikach w trakcie komendy git merge może pojawić się konflikt, o czym poinformuje Cię komunikat w terminalu. Konflikt oznacza, że Git nie umie złączyć dwóch wersji kodu. Musisz mu w tym pomóc. W IDE otwórz plik, w którym pojawił się problem. Jeśli jakieś linijki nie zostały automatycznie złączone, będą oznaczone znakami <<<< oraz >>>>. Twoim zadaniem jest ręczne zmodyfikowanie kodu. Nie zapomnij o usunięciu znaków dodanych przez Gita. Następnie aby sprawdzić poprawność zmian, zbuduj projekt. Ostateczny etap to wykonanie git add ., utworzenie commita i wypchnięcie zmian.
+
+Git rebase
+Jest to bardzo powszechna komenda, którą wykonujemy za każdym razem, kiedy oddajemy branch do code review (czyli do sprawdzenia kodu). Rebase do main oznacza pobranie wszystkich zmian, które pojawiły się wcześniej i ustawienie naszych nowych commitów na samej górze tego stosu. W efekcie drzewo branchy będzie wyglądało tak, jakby wszystkie Twoje zmiany na obecnym branchu były wykonane po ostatniej zmianie na main (lub innym branchu, do którego się rebase'ujesz).
+
+Bardzo dobrze ilustruje to poniższy graf z dokumentacji Atlassiana:
+
+image
+Jak widzisz, commity na branchu Feature były wykonywane równolegle do zmian na main. Za pomocą rebase'a te zmiany zostały przeniesione tak, aby następowały po najnowszym commicie na mainie.
+
+Pamiętaj, że rebase nie łączy branchów, a więc nie zastępuje komendy git merge. Sprawia jednak, że drzewo brancha main jest znacznie uproszczone, a commity merge'a nie zawierają w sobie zmian wynikających z rozwiązywania konfliktów. Dzięki temu łatwiej będzie znaleźć się w historii commitów.
+
+Po wykonaniu rebase'a można już zrobić merge (lub pull request) i nie powinno być żadnych konfliktów, ponieważ zostaną one rozwiązane na etapie rebase'a.
+
+Jak wykonać rebase do main?
+W ten sposób sprawdzamy przed pull requestem, czy nasz kod nie powoduje konfliktów w kodzie.
+
+git pull --rebase origin main
+Może pojawić się sytuacja, że dojdzie do konfliktów i proces rebase’u się zatrzyma. W takim wypadku należy rozwiązywać po kolei konflikty, a następnie dodać pliki za pomocą:
+
+git add [SCIEZKA_DO_PLIKU_Z_KONFLIKTEM]
+a następnie kontynuować proces:
+
+git rebase --continue
+Pamiętaj, że w razie jakichkolwiek problemów z rozwiązywaniem konfliktów możesz zatrzymać proces rebase’u bez krzywdy dla kodu, korzystając z polecenia:
+
+git rebase --abort
+Łączenie commitów
+Zdarzają się sytuacje, gdy popełnimy niewielki błąd lub literówkę i zrobimy commita. Tworzenie kolejnego commita o nazwie "Fix typo" lub "Format code" jest nieeleganckie. Idąc za założeniem, że każdy commit rozwiązuje całkowicie jeden problem lub dodaje nową funkcjonalność, powinniśmy unikać nadmiarowych commitów.
+
+Teraz pokażemy Ci, w jaki sposób można łączyć wiele commitów w jeden. Do tego celu użyjemy tzw. rebase’u brancha w formie interaktywnej. Aby go uruchomić, wprowadzamy następującą komendę:
+
+git rebase -i HEAD~3
+Gdzie 3 jest liczbą oznaczającą liczbę commitów, które chcemy wyświetlić w interaktywnej formie. Tutaj otworzy nam się konsolowy edytor.
+
+Po otwarciu terminala pojawi nam się mniej więcej taki dokument:
+
+pick f4b0988 Add user entity
+pick 3f91f8b Add user service
+pick 6d9c1c8 Fix typo
+
+# Rebase 7c044ca..6d9c1c8 onto 7c044ca (3 commands)
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+...
+Wszystko, co zaczyna się znaczkiem #, jest komentarzem. Na górze znajduje się lista commitów w kolejności od najstarszego do najnowszego. Składa się ona z 3 elementów – komendy, hasha i nazwy commita.
+
+Poniżej listy znajduje się legenda objaśniająca wszystkie dostępne komendy. Jeśli chcielibyśmy połączyć commit Fix typo z commitem Add user service, należy dokonać takiej zmiany:
+
+pick f4b0988 Add user entity
+pick 3f91f8b Add user service
+fixup 6d9c1c8 Fix typo
+...
+A następnie zamknąć edytor.
+
+Jeśli nie wystąpią żadne błędy, to powinniśmy zobaczyć, że nasza praca zakończyła się sukcesem. Po wykonaniu komendy git tree zobaczysz, że commit Fix typo "zniknął", a hash commita Add user service jest inny niż wcześniej.
+
+UWAGA!! – Bacznie zwracaj uwagę na to, co zmieniasz i na co.
+
+I tutaj następuje najważniejsza rzecz – jeśli wcześniej już dokonano wypchnięcia zmian do zdalnego repozytorium, to przy próbie ich wypchnięcia w opisanej wyżej formie może pojawić się błąd. Wynika on z faktu, że zdalne repozytorium widzi konflikt w kolejności i hashach commitów pomiędzy tym co już ma, a w tym, co ma dostać. Jeśli dokonujemy zmian za pomocą interaktywnego rebase’owania, to należy wypychać dane używając polecenia git push -f, gdzie flaga -f oznacza --force, czyli wymuszenie.
+
+Pamiętaj jednak, że nigdy nie używamy --force na main! Korzystaj z niego (bardzo ostrożnie) tylko na swoich branchach stworzonych na potrzebę rozwiązania konkretnych problemów.
+
+Kopiowanie commitów – CherryPick
+Czasem tak się zdarza, że pracujemy na kilku branchach i chcielibyśmy skopiować jeden i tylko jeden commit do drugiego brancha bez merge'owania wszystkich zmian na tym branchu. Jak to zrobić? Służy temu komenda cherry-pick. Jak z niej korzystać?
+
+Po pierwsze musimy upewnić się, że oba branche dostępne są lokalnie.
+Następnie za pomocą komendy git checkout przenosimy się na branch, z którego chcemy wziąć commit.
+Za pomocą funkcji git log lub git tree kopiujemy hash commita, który chcemy skopiować.
+Przenosimy się na docelowy branch, gdzie commit ma być wkopiowany.
+Wpisujemy polecenie git cherry-pick HASH_COMMITA.
+Możemy sprawdzić za pomocą git log lub git tree, czy zmiany zostały wprowadzone.
