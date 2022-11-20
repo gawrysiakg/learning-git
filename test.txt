@@ -1,4 +1,7 @@
-20.5. Praca z gitem
+
+żródło: Kodilla
+
+Praca z gitem    
 
 Tekst wyedytowany
 W tym submodule dowiesz się, jak używać repozytorium w pracy zespołowej. Będzie Ci to potrzebne już niedługo – podczas projektu zespołowego. Nie jest to sprawa trywialna (ale też i nie tak skomplikowana, jak może się wydawać), dlatego dajemy Ci trochę czasu na zapoznanie się z Gitem, zanim przystąpisz do projektu zespołowego. Prosimy, wykorzystaj ten czas na ćwiczenia, żeby podczas projektu zespołowego móc się skupić na zadaniach projektowych.
